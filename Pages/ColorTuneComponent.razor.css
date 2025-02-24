@@ -1,5 +1,21 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .slider-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 20px;
 }
@@ -13,16 +29,30 @@
     height: 30px;
     width: 30px;
     align-self: flex-end;
-    background-color: purple;
+    background-color: white;
+    border: 1px solid black;
     margin-inline: 1rem;
+}
+
+.value-display {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 1rem;
+    font-weight: bold;
+    margin-inline: 0.3125rem;
+    text-align: center; 
+}
+
+/* Setzt sich aus den 3 RGB-Slidern zusammen*/
+.rgb-color {
+    height: 90px;
+    width: 90px;
+    border: 1px solid black;
 }
 
 label {
     font-weight: bold;
     min-width: 5vw;
     align-self: center;
-}
-
-input[type="range"] {
-    width: 80%;
 }

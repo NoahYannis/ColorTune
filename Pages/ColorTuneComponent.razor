@@ -1,27 +1,44 @@
-﻿@page "/colortune"
+﻿@page "/"
 
 <h3>ColorTune</h3>
 
-<div class="slider-container">
-    <div class="slider-element" id="red">
-        <label for="red-slider">Rot</label>
-        <input type="range" id="red-slider" min="0" max="255" @bind="RedValue">
-        <span class="slider-color" id="red-value"/>
+<div class="flex-container column">
+    <div class="flex-container">
+        <div class="slider-container">
+            <div class="slider-element" id="red">
+                <label for="red-slider">Rot</label>
+                <input type="range" id="red-slider" min="0" max="255" @bind="RedValue" @bind:event="oninput">
+                <div class="value-display" style="color: rgb(@RedValue, 0, 0)">
+                    @RedValue
+                </div>
+                <span class="slider-color" style="@($"background-color: rgb({RedValue}, 0, 0);")" id="red-value" />
+            </div>
+            <div class="slider-element" id="green">
+                <label for="green-slider">Grün</label>
+                <input type="range" id="green-slider" min="0" max="255" @bind="GreenValue" @bind:event="oninput">
+                <div class="value-display" style="color: rgb(0, @GreenValue, 0)">
+                    @GreenValue
+                </div>
+                <span class="slider-color" style="@($"background-color: rgb(0, {GreenValue}, 0);")" id="green-value" />
+            </div>
+            <div class="slider-element" id="blue">
+                <label for="blue-slider">Blau</label>
+                <input type="range" id="blue-slider" min="0" max="255" @bind="BlueValue" @bind:event="oninput">
+                <div class="value-display" style="color: rgb(0, 0, @BlueValue)">
+                    @BlueValue
+                </div>
+                <span class="slider-color" style="@($"background-color: rgb(0, 0, {BlueValue});")" id="blue-value" />
+            </div>
+        </div>
+        <span class="rgb-color" style="@($"background-color: rgb({RedValue}, {GreenValue}, {BlueValue});")" id="rgb-value" />
     </div>
-    <div class="slider-element" id="green">
-        <label for="green-slider">Grün</label>
-        <input type="range" id="green-slider" min="0" max="255" @bind="GreenValue">
-        <span class="slider-color" id="green-value"/>
-    </div>
-    <div class="slider-element" id="blue">
-        <label for="blue-slider">Blau</label>
-        <input type="range" id="blue-slider" min="0" max="255" @bind="BlueValue">
-        <span class="slider-color" id="blue-value" />
-    </div>
+    <input type="color" id="color-dialog" />
 </div>
 
+
+
 @code {
-    private int RedValue = 0;
-    private int GreenValue = 0;
-    private int BlueValue = 0;
+    private int RedValue = 255;
+    private int GreenValue = 255;
+    private int BlueValue = 255;
 }
