@@ -1,0 +1,28 @@
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.slider-element {
+    display: flex;
+    gap: 5px;
+}
+
+.slider-color {
+    height: 30px;
+    width: 30px;
+    align-self: flex-end;
+    background-color: purple;
+    margin-inline: 1rem;
+}
+
+label {
+    font-weight: bold;
+    min-width: 5vw;
+    align-self: center;
+}
+
+input[type="range"] {
+    width: 80%;
+}
