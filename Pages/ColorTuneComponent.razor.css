@@ -42,17 +42,21 @@
 
 .slider-element {
     display: flex;
-    gap: 5px;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .slider-color {
     height: 30px;
     width: 30px;
-    align-self: flex-end;
+    flex-shrink: 0;
     background-color: white;
     border: 1px solid black;
     margin-inline: 1rem;
 }
+
 
 /* Anzeige der Regler-Farbe */
 .value-display {
@@ -89,6 +93,12 @@ input[type=color] {
 }
 
 @media (max-width: 37rem) {
+    .slider-element label,
+    .slider-element input[type="range"],
+    .slider-element .value-display {
+        width: 100%;
+    }
+
     .flex-row {
         flex-direction: column;
     }
