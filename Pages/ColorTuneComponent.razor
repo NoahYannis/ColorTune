@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<h3>ColorTune</h3>
+<h3 style="text-align: center; margin-bottom: 2rem;">ColorTune</h3>
 
 <div class="flex-container column">
     <div class="flex-container">
@@ -30,9 +30,15 @@
                 <span class="slider-color" style="@($"background-color: rgb(0, 0, {BlueValue});")" id="blue-value" />
             </div>
         </div>
-        <span class="rgb-color" style="@($"background-color: rgb({RedValue}, {GreenValue}, {BlueValue});")" id="rgb-value" />
+        <div class="flex-container column" style="gap: 5px;">
+            <label for="rgb-value">RGB-Farbe:</label>
+            <span class="rgb-color" style="@($"background-color: rgb({RedValue}, {GreenValue}, {BlueValue});")" id="rgb-value" />
+        </div>
     </div>
-    <input type="color" id="color-dialog" />
+    <div class="flex-container column" style="gap: 5px">
+        <label for="color-digalog">Farbdialog:</label>
+        <input type="color" id="color-dialog" />
+    </div>
 </div>
 
 
