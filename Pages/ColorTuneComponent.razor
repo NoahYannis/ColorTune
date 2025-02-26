@@ -37,7 +37,7 @@
     </div>
     <div class="flex-container column" style="gap: 5px">
         <label for="color-digalog">Farbdialog:</label>
-        <input type="color" id="color-dialog" />
+        <input type="color" id="color-dialog" @onchange="OnColorChanged" value="@CurrentColor" />
     </div>
 </div>
 
@@ -47,4 +47,17 @@
     private int RedValue = 255;
     private int GreenValue = 255;
     private int BlueValue = 255;
+
+    private string CurrentColor => $"#{RedValue:X2}{GreenValue:X2}{BlueValue:X2}";
+
+
+    private void OnColorChanged(ChangeEventArgs e)
+    {
+        if (e.Value is string hexColor)
+        {
+            RedValue = int.Parse(hexColor.Substring(1, 2), System.Globalization.NumberStyles.HexNumber);
+            GreenValue = int.Parse(hexColor.Substring(3, 2), System.Globalization.NumberStyles.HexNumber);
+            BlueValue = int.Parse(hexColor.Substring(5, 2), System.Globalization.NumberStyles.HexNumber);
+        }
+    }
 }
