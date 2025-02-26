@@ -2,46 +2,42 @@
 
 <h3 style="text-align: center; margin-bottom: 2rem;">ColorTune</h3>
 
-<div class="flex-container column">
-    <div class="flex-container">
-        <div class="slider-container">
-            <div class="slider-element" id="red">
-                <label for="red-slider">Rot</label>
-                <input type="range" id="red-slider" min="0" max="255" @bind="RedValue" @bind:event="oninput">
-                <div class="value-display" style="color: rgb(@RedValue, 0, 0)">
-                    @RedValue
-                </div>
-                <span class="slider-color" style="@($"background-color: rgb({RedValue}, 0, 0);")" id="red-value" />
+<div class="flex-row">
+    <div class="slider-container">
+        <div class="slider-element" id="red">
+            <label for="red-slider">Rot</label>
+            <input type="range" id="red-slider" min="0" max="255" @bind="RedValue" @bind:event="oninput">
+            <div class="value-display" style="color: rgb(@RedValue, 0, 0)">
+                @RedValue
             </div>
-            <div class="slider-element" id="green">
-                <label for="green-slider">Grün</label>
-                <input type="range" id="green-slider" min="0" max="255" @bind="GreenValue" @bind:event="oninput">
-                <div class="value-display" style="color: rgb(0, @GreenValue, 0)">
-                    @GreenValue
-                </div>
-                <span class="slider-color" style="@($"background-color: rgb(0, {GreenValue}, 0);")" id="green-value" />
-            </div>
-            <div class="slider-element" id="blue">
-                <label for="blue-slider">Blau</label>
-                <input type="range" id="blue-slider" min="0" max="255" @bind="BlueValue" @bind:event="oninput">
-                <div class="value-display" style="color: rgb(0, 0, @BlueValue)">
-                    @BlueValue
-                </div>
-                <span class="slider-color" style="@($"background-color: rgb(0, 0, {BlueValue});")" id="blue-value" />
-            </div>
+            <span class="slider-color" style="@($"background-color: rgb({RedValue}, 0, 0);")" id="red-value" />
         </div>
-        <div class="flex-container column" style="gap: 5px;">
-            <label for="rgb-value">RGB-Farbe:</label>
-            <span class="rgb-color" style="@($"background-color: rgb({RedValue}, {GreenValue}, {BlueValue});")" id="rgb-value" />
+        <div class="slider-element" id="green">
+            <label for="green-slider">Grün</label>
+            <input type="range" id="green-slider" min="0" max="255" @bind="GreenValue" @bind:event="oninput">
+            <div class="value-display" style="color: rgb(0, @GreenValue, 0)">
+                @GreenValue
+            </div>
+            <span class="slider-color" style="@($"background-color: rgb(0, {GreenValue}, 0);")" id="green-value" />
+        </div>
+        <div class="slider-element" id="blue">
+            <label for="blue-slider">Blau</label>
+            <input type="range" id="blue-slider" min="0" max="255" @bind="BlueValue" @bind:event="oninput">
+            <div class="value-display" style="color: rgb(0, 0, @BlueValue)">
+                @BlueValue
+            </div>
+            <span class="slider-color" style="@($"background-color: rgb(0, 0, {BlueValue});")" id="blue-value" />
         </div>
     </div>
-    <div class="flex-container column" style="gap: 5px">
-        <label for="color-digalog">Farbdialog:</label>
-        <input type="color" id="color-dialog" @onchange="OnColorChanged" value="@CurrentColor" />
+    <div class="column-container" style="gap: 5px;">
+        <label for="rgb-value">RGB-Farbe:</label>
+        <span class="rgb-color" style="@($"background-color: rgb({RedValue}, {GreenValue}, {BlueValue});")" id="rgb-value" />
     </div>
 </div>
-
-
+<div class="column-container" style="gap: 5px">
+    <label for="color-dialog">Farbdialog:</label>
+    <input type="color" id="color-dialog" @onchange="OnColorChanged" value="@CurrentColor" />
+</div>
 
 @code {
     private int RedValue = 255;
@@ -49,7 +45,6 @@
     private int BlueValue = 255;
 
     private string CurrentColor => $"#{RedValue:X2}{GreenValue:X2}{BlueValue:X2}";
-
 
     private void OnColorChanged(ChangeEventArgs e)
     {

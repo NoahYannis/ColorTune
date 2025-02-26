@@ -1,22 +1,42 @@
-.flex-container {
+.row-container {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    gap: 20px;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
     gap: 10px;
 }
 
-.column {
+.flex-column {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
 }
 
 .slider-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     gap: 20px;
 }
 
@@ -34,19 +54,21 @@
     margin-inline: 1rem;
 }
 
+/* Anzeige der Regler-Farbe */
 .value-display {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1rem;
     font-weight: bold;
     margin-inline: 0.3125rem;
-    text-align: center; 
+    text-align: center;
     min-width: 30px;
 }
 
 /* Setzt sich aus den 3 RGB-Slidern zusammen*/
 .rgb-color {
+    display: block;
     height: 90px;
     width: 90px;
     border: 1px solid black;
@@ -57,4 +79,21 @@ label {
     min-width: 5vw;
     align-self: center;
     text-align: left;
+}
+
+input[type=color] {
+    display: block;
+    height: 90px;
+    width: 90px;
+    cursor: pointer;
+}
+
+@media (max-width: 37rem) {
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .flex-column {
+        flex-direction: row;
+    }
 }
